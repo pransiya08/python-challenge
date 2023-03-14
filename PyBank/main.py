@@ -7,9 +7,8 @@ budget_csvpath = os.path.join("Resources","budget_data.csv")
 #COMMENT
 analysis_txtpath = os.path.join("analysis","analysis_result.txt")
 
-
-#defining the total_budget() function
-def analyse_budget(budget_data, month_data):
+#defining the analyse_budget() function
+def analyse_budget(month_data, budget_data):
 
     #printing the output in a .txt file
     with open(analysis_txtpath, "w") as f:
@@ -17,7 +16,7 @@ def analyse_budget(budget_data, month_data):
         print("------------------------------------------------------", file=f)
     
         #the total number of months included in the dataset can be identified by getting the length of the budget data (1 month: 1 p/l)
-        total_month = len(budget_data)
+        total_month = len(month_data)
         print("Total Months: " + str(total_month), file=f)
 
         #the net total amount of "Profit/Losses" over the entire period
@@ -83,4 +82,4 @@ with open(budget_csvpath) as csvfile:
         month_data.append(row[0])
         budget_data.append(row[1])
 
-analyse_budget(budget_data, month_data)
+analyse_budget(month_data, budget_data)
